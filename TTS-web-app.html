@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Reading Chronicle — Text to Speech</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unna:wght@700&family=Quattrocento:wght@400;700&family=Sorts+Mill+Goudy:ital,wght@0,400;1,400&family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23A83E3E'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='70' fill='%23F7F3E9'%3ER%3C/text%3E%3C/svg%3E">
 <style>
   :root{
     --bg:        #F7F3E9;
@@ -34,7 +32,7 @@
     height: 100%;
     background: var(--bg);
     color: var(--primary);
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     transition: background-color .25s ease, color .25s ease;
     overflow: hidden;
     overscroll-behavior: none;
@@ -75,7 +73,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     font-size: 0.68rem;
     letter-spacing: 2.5px;
     text-transform: uppercase;
@@ -83,7 +81,7 @@
     margin-bottom: 10px;
   }
   h1.title{
-    font-family: 'Unna', serif;
+     font-family: 'Unna', Georgia, serif;
     font-weight: 700;
     font-size: 2.1rem;
     letter-spacing: 0.5px;
@@ -91,7 +89,7 @@
     color: var(--primary);
   }
   .masthead .tagline{
-    font-family: 'Sorts Mill Goudy', serif;
+     font-family: 'Sorts Mill Goudy', Georgia, serif;
     font-style: italic;
     font-size: 0.95rem;
     color: var(--secondary);
@@ -110,10 +108,19 @@
   }
   #themeToggle svg{ width:17px; height:17px; }
   #themeToggle:active{ transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--secondary); }
+  #themeToggle:focus-visible,
+  .btn:focus-visible,
+  select:focus-visible,
+  input[type="range"]:focus-visible,
+  textarea:focus-visible,
+  #closeReaderBtn:focus-visible{
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
 
   /* ---------- Section titles ---------- */
   .section-title{
-    font-family: 'Quattrocento', serif;
+     font-family: 'Quattrocento', Georgia, serif;
     font-weight: 700;
     color: var(--accent);
     font-size: 1.05rem;
@@ -151,7 +158,7 @@
     outline: none;
     background: transparent;
     color: var(--primary);
-    font-family: 'Sorts Mill Goudy', serif;
+     font-family: 'Sorts Mill Goudy', Georgia, serif;
     font-style: italic;
     font-size: 1.08rem;
     line-height: 1.7;
@@ -162,7 +169,7 @@
   .meta-row{
     display:flex;
     justify-content:flex-end;
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.72rem;
@@ -187,12 +194,24 @@
   }
   html.dark #readerWrap.panel{ box-shadow: 5px 5px 0 rgba(255,255,255,0.06); }
 
+  .visually-hidden{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+
   #readerText{
-    flex: 1 1 auto;
+     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
     padding: 22px 18px;
-    font-family: 'Sorts Mill Goudy', serif;
+     font-family: 'Sorts Mill Goudy', Georgia, serif;
     font-style: italic;
     font-size: 1.25rem;
     line-height: 2;
@@ -224,15 +243,16 @@
     margin-bottom: 4px;
   }
   .control-table tr{ }
-  .control-table td{
+  .control-table td,
+  .control-table th{
     border: 1px solid var(--secondary);
     padding: 10px 12px;
     vertical-align: middle;
   }
-  .control-table td.label-cell{
+  .control-table th.label-cell{
     background: var(--primary);
     color: var(--bg);
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.72rem;
@@ -248,7 +268,7 @@
   }
 
   #speedLabel{
-    font-family: 'Quattrocento', serif;
+     font-family: 'Quattrocento', Georgia, serif;
     font-weight: 700;
     color: var(--accent);
   }
@@ -260,7 +280,7 @@
     border-radius: 0;
     background: var(--surface-strong);
     color: var(--primary);
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     font-size: 0.85rem;
   }
 
@@ -288,7 +308,7 @@
     border: 2px solid var(--primary);
     background: var(--surface-strong);
     color: var(--primary);
-    font-family: 'Quattrocento Sans', sans-serif;
+     font-family: 'Quattrocento Sans', 'Trebuchet MS', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -313,6 +333,34 @@
   }
   .btn:disabled:active{ transform:none; box-shadow: 3px 3px 0 var(--secondary); }
 
+  .speech-status{
+    min-height: 1.2em;
+    margin-top: 10px;
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* Close button: overlays the reader panel, styled to match the other controls */
+  #readerWrap{ position: relative; }
+  #closeReaderBtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    background: var(--surface-strong);
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--secondary);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  #closeReaderBtn:active{ transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--secondary); }
+
   @media (max-width: 380px){
     .btn{ font-size: 0.68rem; height:48px; }
     h1.title{ font-size: 1.7rem; }
@@ -326,7 +374,7 @@
   <div class="masthead">
     <div class="masthead-top">
       <span id="editionDate"></span>
-      <button id="themeToggle" aria-label="Toggle night edition"></button>
+      <button id="themeToggle" type="button" aria-label="Switch to night edition" aria-pressed="false"></button>
     </div>
     <h1 class="title">The Reading Chronicle</h1>
     <p class="tagline">An Organ of the Spoken Word — Text-to-Speech Edition</p>
@@ -334,12 +382,14 @@
 
   <div id="editorWrap" class="panel">
     <div class="section-title">The Manuscript</div>
+    <label class="visually-hidden" for="inputText">Manuscript text</label>
     <textarea id="inputText" placeholder="Paste up to 1000 words here to have it read aloud…"></textarea>
     <div class="meta-row" id="wordCountRow"><span id="wordCount">0 / 1000 words</span></div>
   </div>
 
   <div id="readerWrap" class="panel hidden">
-    <div id="readerText" aria-live="polite"></div>
+    <div id="readerText"></div>
+       <button id="closeReaderBtn" type="button" class="hidden" aria-label="Back to manuscript">&#215;</button>
   </div>
 
   <div class="panel controls">
@@ -347,11 +397,11 @@
 
     <table class="control-table">
       <tr>
-        <td class="label-cell">Narrator</td>
+        <th scope="row" class="label-cell"><label for="voiceSelect">Narrator</label></th>
         <td class="value-cell"><select id="voiceSelect"></select></td>
       </tr>
       <tr>
-        <td class="label-cell">Tempo</td>
+        <th scope="row" class="label-cell"><label for="speedRange">Tempo</label></th>
         <td class="value-cell">
           <div style="display:flex; align-items:center; gap:10px;">
             <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
@@ -361,16 +411,18 @@
       </tr>
     </table>
 
+    <div id="speechSupportStatus" class="speech-status" role="status" aria-live="polite"></div>
+
     <div class="buttons-row">
-      <button id="playBtn" class="btn primary">
+       <button id="playBtn" type="button" class="btn primary">
         <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <span id="playLabel">Play</span>
       </button>
-      <button id="pauseBtn" class="btn" disabled>
+       <button id="pauseBtn" type="button" class="btn" disabled>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         <span>Pause</span>
       </button>
-      <button id="stopBtn" class="btn" disabled>
+       <button id="stopBtn" type="button" class="btn" disabled>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
         <span>Stop</span>
       </button>
@@ -381,11 +433,14 @@
 
 <script>
 (function(){
-  const synth = window.speechSynthesis;
+  const speechSupported = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const synth = speechSupported ? window.speechSynthesis : null;
 
   const editorWrap = document.getElementById('editorWrap');
   const readerWrap = document.getElementById('readerWrap');
   const readerText = document.getElementById('readerText');
+  const speechSupportStatus = document.getElementById('speechSupportStatus');
+  const closeReaderBtn = document.getElementById('closeReaderBtn');
   const inputText = document.getElementById('inputText');
   const wordCount = document.getElementById('wordCount');
   const wordCountRow = document.getElementById('wordCountRow');
@@ -399,13 +454,40 @@
   const themeToggle = document.getElementById('themeToggle');
   const editionDate = document.getElementById('editionDate');
 
+  const MAX_WORDS = 1000;
+  const CHUNK_TARGET = 190;   // chars per utterance (keeps each well under Chrome's ~15s cut)
+  const STATE_IDLE = 'idle';
+  const STATE_PLAYING = 'playing';
+  const STATE_PAUSED = 'paused';
+  const WORDS_PER_MIN = 180;  // nominal narration rate at rate 1.0, for highlight estimation
+  const BOUNDARY_FALLBACK_MS = 100;  // cadence of estimate-driven highlighting
+  const VOICE_POLL_MS = 250;
+  const VOICE_POLL_TIMEOUT = 5000;
+  const KEEP_ALIVE_MS = 10000;      // desktop only: refresh speech before Chrome's ~15s watchdog
+  const PAGEHIDE_CANCEL_TIMEOUT = 15000; // how long after pagehide before we force-cancel speech
+
+  // Android treats pause() as stop, so we implement pause/resume differently there.
+  const isMobile = /Android/i.test(navigator.userAgent) ||
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
   let voices = [];
-  let wordMeta = [];   // {start, end}
+  let wordMeta = [];   // {start, end} absolute offsets into fullText
   let wordSpans = [];
   let fullText = '';
-  let currentOffset = 0; // char offset of current utterance start relative to fullText
-  let currentWordIndex = -1;
+  let chunks = [];     // [{text, start, end}]
+  let chunkIndex = 0;
   let currentUtterance = null;
+  let currentWordIndex = -1;
+  let state = STATE_IDLE;
+  let finishing = false;
+  let chunkHasBoundary = false;  // true when the current chunk fired a real boundary event
+  let estimateTimer = null;      // interval id driving fallback highlighting
+  let keepAliveTimer = null;     // interval id nudging Chrome past the 15s watchdog
+  let pageHideTimer = null;      // delayed cancel() scheduled on pagehide
+  let speechGeneration = 0;
+  let visibilityInterrupted = false;
+  let speechCanceledWhileHidden = false;
+  let draftSaveTimer = null;
 
   // ---------- Edition date ----------
   editionDate.textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -413,13 +495,21 @@
   const SUN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
   const MOON_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
 
-  // ---------- Theme ----------
+  // ---------- Theme and persistence ----------
+  function readStorage(key){
+    try{ return localStorage.getItem(key); }catch(e){ return null; }
+  }
+  function writeStorage(key, value){
+    try{ localStorage.setItem(key, value); }catch(e){}
+  }
   function applyTheme(dark){
     document.documentElement.classList.toggle('dark', dark);
     themeToggle.innerHTML = dark ? SUN_ICON : MOON_ICON;
-    localStorage.setItem('tts-dark', dark ? '1' : '0');
+    themeToggle.setAttribute('aria-label', dark ? 'Switch to day edition' : 'Switch to night edition');
+    themeToggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    writeStorage('tts-dark', dark ? '1' : '0');
   }
-  const savedDark = localStorage.getItem('tts-dark');
+  const savedDark = readStorage('tts-dark');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   applyTheme(savedDark !== null ? savedDark === '1' : prefersDark);
 
@@ -428,21 +518,61 @@
   });
 
   // ---------- Word counter ----------
-  function updateWordCount(){
-    const words = inputText.value.trim().split(/\s+/).filter(Boolean);
-    const n = words.length;
-    wordCount.textContent = n + ' / 1000 words';
-    wordCountRow.classList.toggle('over', n > 1000);
+  function countWords(text){
+    return text.trim().split(/\s+/).filter(Boolean).length;
   }
-  inputText.addEventListener('input', updateWordCount);
+  function updateWordCount(){
+    const n = countWords(inputText.value);
+    wordCount.textContent = n + ' / ' + MAX_WORDS + ' words';
+    wordCountRow.classList.toggle('over', n > MAX_WORDS);
+  }
+  inputText.addEventListener('input', () => {
+    updateWordCount();
+    wordCountRow.removeAttribute('title');
+  });
   updateWordCount();
+
+  // ---------- Persistence ----------
+  function saveDraft(){
+    writeStorage('tts-draft', inputText.value);
+  }
+  function scheduleDraftSave(){
+    if(draftSaveTimer) clearTimeout(draftSaveTimer);
+    draftSaveTimer = setTimeout(() => {
+      draftSaveTimer = null;
+      saveDraft();
+    }, 250);
+  }
+  function saveVoice(voice){
+    writeStorage('tts-voice', voice ? voice.name : '');
+  }
+  function saveSpeed(){
+    writeStorage('tts-speed', speedRange.value);
+  }
 
   // ---------- Voices ----------
   function populateVoices(){
+    if(!speechSupported) return;
     const list = synth.getVoices();
     if(!list.length) return;
-    voices = list;
-    const prevValue = voiceSelect.value;
+    // dedupe by name+lang (some platforms report duplicates), keep default flag
+    const seen = new Set();
+    const unique = [];
+    list.forEach(v => {
+      const key = v.name + '\u0000' + v.lang;
+      if(!seen.has(key)){
+        seen.add(key);
+        unique.push(v);
+      }
+    });
+    voices = unique.sort((a, b) => {
+      if(a.default !== b.default) return a.default ? -1 : 1;
+      const la = a.lang || '';
+      const lb = b.lang || '';
+      if(la !== lb) return la.localeCompare(lb);
+      return a.name.localeCompare(b.name);
+    });
+    const prevName = readStorage('tts-voice') || '';
     voiceSelect.innerHTML = '';
     voices.forEach((v, i) => {
       const opt = document.createElement('option');
@@ -450,25 +580,42 @@
       opt.textContent = v.name + ' (' + v.lang + ')' + (v.default ? ' — default' : '');
       voiceSelect.appendChild(opt);
     });
-
-    // try restore previous selection
-    if(prevValue !== '' && voices[prevValue]){
-      voiceSelect.value = prevValue;
-    } else {
+    // restore by name (indexes drift when voices load async), then lang, then default
+    let idx = prevName ? voices.findIndex(v => v.name === prevName) : -1;
+    if(idx === -1){
       const lang = navigator.language || 'en-US';
-      let idx = voices.findIndex(v => v.lang === lang);
+      idx = voices.findIndex(v => v.lang === lang);
       if(idx === -1) idx = voices.findIndex(v => v.lang && v.lang.split('-')[0] === lang.split('-')[0]);
       if(idx === -1) idx = voices.findIndex(v => v.default);
       if(idx === -1) idx = 0;
-      voiceSelect.value = idx;
     }
+    voiceSelect.value = idx;
   }
-  populateVoices();
-  if('onvoiceschanged' in synth){
-    synth.onvoiceschanged = populateVoices;
+  // Voices load asynchronously (Chromium can return [] and fire voiceschanged too early),
+  // so poll until the list is ready or a timeout elapses, and keep the live listener too.
+  function pollVoices(){
+    let elapsed = 0;
+    const id = setInterval(() => {
+      elapsed += VOICE_POLL_MS;
+      populateVoices();
+      if(voices.length || elapsed >= VOICE_POLL_TIMEOUT){
+        clearInterval(id);
+      }
+    }, VOICE_POLL_MS);
   }
-  setTimeout(populateVoices, 300);
-  setTimeout(populateVoices, 1000);
+  if(speechSupported){
+    populateVoices();
+    if('onvoiceschanged' in synth){
+      synth.onvoiceschanged = populateVoices;
+    }
+    pollVoices();
+  } else {
+    speechSupportStatus.textContent = 'Speech synthesis is not supported in this browser.';
+    playBtn.disabled = true;
+    pauseBtn.disabled = true;
+    stopBtn.disabled = true;
+    voiceSelect.disabled = true;
+  }
 
   // ---------- Speed ----------
   function refreshSpeedLabel(){
@@ -477,12 +624,14 @@
   refreshSpeedLabel();
   speedRange.addEventListener('input', refreshSpeedLabel);
   speedRange.addEventListener('change', () => {
-    if(synth.speaking && !synth.paused){
+    saveSpeed();
+    if(state === STATE_PLAYING){
       restartFromWord(currentWordIndex >= 0 ? currentWordIndex : 0);
     }
   });
   voiceSelect.addEventListener('change', () => {
-    if(synth.speaking){
+    saveVoice(voices[voiceSelect.value]);
+    if(state === STATE_PLAYING){
       restartFromWord(currentWordIndex >= 0 ? currentWordIndex : 0);
     }
   });
@@ -520,8 +669,10 @@
   }
 
   function highlightAtIndex(absIndex){
-    let idx = wordMeta.findIndex(w => absIndex >= w.start && absIndex < w.end);
+    let idx = wordMeta.findIndex(w => absIndex >= w.start && absIndex <= w.end);
     if(idx === -1){
+      // between words (whitespace) or beyond the end: pick the nearest word
+      idx = -1;
       for(let i = wordMeta.length - 1; i >= 0; i--){
         if(wordMeta[i].start <= absIndex){ idx = i; break; }
       }
@@ -534,105 +685,320 @@
     const span = wordSpans[idx];
     if(span){
       span.classList.add('active');
-      span.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      try{ span.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      catch(e){ span.scrollIntoView(); }
     }
   }
 
+  // ---------- Highlight fallback (estimate-driven) ----------
+  // Some voices/engines never fire onboundary, so highlighting would silently
+  // fail. When a chunk produces no boundary events, drive the highlight with an
+  // approximate per-word timing (nominal WPM scaled by rate), re-anchored on
+  // every chunk start so drift stays bounded.
+  function startEstimateTimer(chunk, generation){
+    stopEstimateTimer();
+    if(!wordMeta.length) return;
+    const rate = parseFloat(speedRange.value) || 1;
+    const startIdx = chunkIndex;
+    const firstWord = wordMeta.findIndex(word => word.end > chunk.start);
+    const firstWordIndex = firstWord === -1 ? wordMeta.length - 1 : firstWord;
+    const lastWord = wordMeta.reduce((last, word, index) => word.start < chunk.end ? index : last, firstWordIndex);
+    let elapsed = 0;
+    estimateTimer = setInterval(() => {
+      if(generation !== speechGeneration || finishing || state !== STATE_PLAYING || chunkIndex !== startIdx){
+        stopEstimateTimer();
+        return;
+      }
+      elapsed += BOUNDARY_FALLBACK_MS;
+      const wordsPerMs = (WORDS_PER_MIN * rate) / 60000;
+      const estimatedOffset = Math.floor(elapsed * wordsPerMs);
+      const idx = Math.min(lastWord, firstWordIndex + estimatedOffset);
+      if(idx >= firstWordIndex && idx !== currentWordIndex){
+        highlightAtIndex(wordMeta[idx].start);
+      }
+    }, BOUNDARY_FALLBACK_MS);
+  }
+  function stopEstimateTimer(){
+    if(estimateTimer){ clearInterval(estimateTimer); estimateTimer = null; }
+  }
+
+  // ---------- Chrome 15s keep-alive (desktop only) ----------
+  // Chrome's watchdog can still kill a single slow utterance even when chunked.
+  // A periodic pause/resume nudge resets the watchdog timer; Android's pause()
+  // acts as stop, so this is gated to non-mobile.
+  function startKeepAliveTimer(){
+    stopKeepAliveTimer();
+    if(isMobile) return;
+    keepAliveTimer = setInterval(() => {
+      if(finishing || state !== STATE_PLAYING) return;
+      try{
+        synth.pause();
+        synth.resume();
+      }catch(e){}
+    }, KEEP_ALIVE_MS);
+  }
+  function stopKeepAliveTimer(){
+    if(keepAliveTimer){ clearInterval(keepAliveTimer); keepAliveTimer = null; }
+  }
+
+  // ---------- Chunking ----------
+  // Split text into utterance-sized pieces on word boundaries. Chrome silently
+  // stops speech ~15s into a single utterance; short chunks keep audio flowing.
+  function chunkText(text, baseOffset = 0){
+    const out = [];
+    const len = text.length;
+    let start = 0;
+    while(start < len){
+      if(len - start <= CHUNK_TARGET){
+        out.push({ text: text.slice(start), start: baseOffset + start, end: baseOffset + len });
+        break;
+      }
+      const end = start + CHUNK_TARGET;
+      let splitAt = -1;
+      for(let i = Math.min(end, len - 1); i > start; i--){
+        if(/\s/.test(text[i])){
+          splitAt = i;
+          break;
+        }
+      }
+      if(splitAt === -1) splitAt = end;
+      out.push({ text: text.slice(start, splitAt), start: baseOffset + start, end: baseOffset + splitAt });
+      start = splitAt;
+      while(start < len && /\s/.test(text[start])) start++;
+    }
+    return out;
+  }
+
   // ---------- Speech control ----------
-  function buildUtterance(text){
-    const utt = new SpeechSynthesisUtterance(text);
+  function setState(next){
+    state = next;
+    const idle = state === STATE_IDLE;
+    const playing = state === STATE_PLAYING;
+    playBtn.disabled = playing;
+    pauseBtn.disabled = !playing;
+    stopBtn.disabled = idle;
+    playLabel.textContent = state === STATE_PAUSED ? 'Resume' : 'Play';
+  }
+
+  function buildUtterance(chunk, generation){
+    const utt = new SpeechSynthesisUtterance(chunk.text);
     const vIdx = voiceSelect.value;
     if(voices[vIdx]) utt.voice = voices[vIdx];
     utt.rate = parseFloat(speedRange.value);
     utt.pitch = 1;
+    chunkHasBoundary = false;
     utt.onboundary = (e) => {
-      if(e.name && e.name !== 'word') return;
-      highlightAtIndex(currentOffset + e.charIndex);
+      if(generation !== speechGeneration || (e.name && e.name !== 'word')) return;
+      chunkHasBoundary = true;
+      stopEstimateTimer();
+      highlightAtIndex(chunk.start + e.charIndex);
+    };
+    utt.onstart = () => {
+      if(generation !== speechGeneration || finishing) return;
+      if(!chunkHasBoundary){
+        startEstimateTimer(chunk, generation);
+      }
     };
     utt.onend = () => {
-      if(currentUtterance === utt){
+      if(generation !== speechGeneration || finishing) return;
+      stopEstimateTimer();
+      if(state === STATE_PLAYING && chunkIndex < chunks.length - 1){
+        chunkIndex++;
+        speakChunk(chunks[chunkIndex], generation);
+      } else if(state === STATE_PLAYING){
         finishSpeech();
       }
     };
     utt.onerror = (e) => {
-      if(e.error === 'interrupted' || e.error === 'canceled') return;
-      if(currentUtterance === utt){
+      if(generation !== speechGeneration || finishing) return;
+      if(e.error === 'interrupted' || e.error === 'canceled'){
+        stopEstimateTimer();
+        if(state === STATE_PLAYING && chunkIndex < chunks.length - 1){
+          chunkIndex++;
+          speakChunk(chunks[chunkIndex], generation);
+        } else if(state === STATE_PLAYING){
+          finishSpeech();
+        }
+        return;
+      }
+      if(e.error === 'not-allowed' || state !== STATE_IDLE){
+        const message = e.error === 'not-allowed'
+          ? 'Speech permission was denied. Check your browser audio settings.'
+          : 'Speech playback stopped unexpectedly. Try another voice or browser.';
+        speechSupportStatus.textContent = message;
         finishSpeech();
       }
     };
     return utt;
   }
 
-  function updateControls(){
-    const speaking = synth.speaking;
-    const paused = synth.paused;
-    playBtn.disabled = speaking && !paused;
-    pauseBtn.disabled = !speaking || paused;
-    stopBtn.disabled = !speaking;
-    playLabel.textContent = (speaking && paused) ? 'Resume' : 'Play';
+  function speakChunk(chunk, generation = speechGeneration){
+    currentUtterance = buildUtterance(chunk, generation);
+    synth.speak(currentUtterance);
   }
 
   function startSpeech(){
+    if(!speechSupported) return;
+    speechSupportStatus.textContent = '';
     const text = inputText.value.trim();
     if(!text) return;
+    if(countWords(text) > MAX_WORDS){
+      wordCountRow.title = 'Too many words to read aloud — remove some and try again.';
+      inputText.focus();
+      return;
+    }
     fullText = text;
-    currentOffset = 0;
     clearHighlight();
     renderReaderText(text);
     editorWrap.classList.add('hidden');
     readerWrap.classList.remove('hidden');
+    closeReaderBtn.classList.remove('hidden');
 
-    synth.cancel();
-    currentUtterance = buildUtterance(text);
-    synth.speak(currentUtterance);
-    updateControls();
+    chunks = chunkText(text);
+    chunkIndex = 0;
+    finishing = false;
+    visibilityInterrupted = false;
+    speechCanceledWhileHidden = false;
+    speechGeneration++;
+    try{ synth.cancel(); }catch(e){}
+    setState(STATE_PLAYING);
+    startKeepAliveTimer();
+    speakChunk(chunks[0]);
   }
 
   function restartFromWord(idx){
-    if(!fullText) return;
+    if(!speechSupported || !fullText) return;
     const meta = wordMeta[idx];
     const startChar = meta ? meta.start : 0;
-    currentOffset = startChar;
-    const remaining = fullText.slice(startChar);
-    synth.cancel();
-    currentUtterance = buildUtterance(remaining);
-    synth.speak(currentUtterance);
-    updateControls();
+    chunks = chunkText(fullText.slice(startChar), startChar);
+    chunkIndex = 0;
+    finishing = false;
+    visibilityInterrupted = false;
+    speechCanceledWhileHidden = false;
+    speechGeneration++;
+    try{ synth.cancel(); }catch(e){}
+    setState(STATE_PLAYING);
+    startKeepAliveTimer();
+    speakChunk(chunks[0]);
   }
 
   function finishSpeech(){
+    if(finishing) return;
+    finishing = true;
+    speechGeneration++;
+    visibilityInterrupted = false;
+    speechCanceledWhileHidden = false;
+    stopEstimateTimer();
+    stopKeepAliveTimer();
+    try{ synth.cancel(); }catch(e){}
+    currentUtterance = null;
     clearHighlight();
     readerWrap.classList.add('hidden');
     editorWrap.classList.remove('hidden');
-    currentUtterance = null;
-    updateControls();
+    closeReaderBtn.classList.add('hidden');
+    setState(STATE_IDLE);
+    finishing = false;
   }
 
+  // ---------- Controls ----------
   playBtn.addEventListener('click', () => {
-    if(synth.paused){
-      synth.resume();
-      updateControls();
-    } else if(!synth.speaking){
+    if(state === STATE_PAUSED){
+      if(isMobile || speechCanceledWhileHidden){
+        restartFromWord(currentWordIndex >= 0 ? currentWordIndex : 0);
+      } else {
+        synth.resume();
+        setState(STATE_PLAYING);
+        startKeepAliveTimer();
+      }
+    } else if(state === STATE_IDLE){
       startSpeech();
     }
   });
 
   pauseBtn.addEventListener('click', () => {
-    if(synth.speaking && !synth.paused){
-      synth.pause();
-      updateControls();
+    if(state === STATE_PLAYING){
+      if(isMobile){
+        // Android pause() = stop: cancel now, restart from this word on Resume.
+        speechGeneration++;
+            try{ synth.cancel(); }catch(e){}
+        setState(STATE_PAUSED);
+      } else {
+        synth.pause();
+        setState(STATE_PAUSED);
+      }
     }
   });
 
   stopBtn.addEventListener('click', () => {
-    synth.cancel();
     finishSpeech();
   });
 
-  setInterval(updateControls, 400);
-  updateControls();
+  closeReaderBtn.addEventListener('click', () => {
+    finishSpeech();
+  });
 
-  window.addEventListener('beforeunload', () => { synth.cancel(); });
+  inputText.addEventListener('input', scheduleDraftSave);
+  inputText.addEventListener('change', saveDraft);
+  window.addEventListener('pagehide', saveDraft);
+
+  // Page lifecycle: cancel speech that survived a refresh and pause playback while
+  // the page is hidden without leaving the controls in a playing state.
+  if(speechSupported){
+    try{ synth.cancel(); }catch(e){}
+    window.addEventListener('pagehide', () => {
+      if(pageHideTimer) clearTimeout(pageHideTimer);
+      if(state === STATE_PLAYING){
+        visibilityInterrupted = true;
+        stopKeepAliveTimer();
+        if(isMobile){
+          try{ synth.cancel(); }catch(e){}
+        } else {
+          try{ synth.pause(); }catch(e){}
+        }
+        setState(STATE_PAUSED);
+      }
+      pageHideTimer = setTimeout(() => {
+        if(visibilityInterrupted && state === STATE_PAUSED){
+          speechCanceledWhileHidden = true;
+        }
+        try{ synth.cancel(); }catch(e){}
+      }, PAGEHIDE_CANCEL_TIMEOUT);
+    });
+    window.addEventListener('pageshow', () => {
+      if(pageHideTimer){ clearTimeout(pageHideTimer); pageHideTimer = null; }
+    });
+    document.addEventListener('visibilitychange', () => {
+      if(document.hidden){
+        if(state === STATE_PLAYING){
+          visibilityInterrupted = true;
+          stopKeepAliveTimer();
+          if(isMobile){
+            speechGeneration++;
+                    try{ synth.cancel(); }catch(e){}
+          } else {
+            try{ synth.pause(); }catch(e){}
+          }
+          setState(STATE_PAUSED);
+        }
+      } else if(visibilityInterrupted){
+        visibilityInterrupted = false;
+      }
+    });
+  }
+
+  // restore persisted state (no UI change; values silently repopulate controls)
+  (function restore(){
+    const draft = readStorage('tts-draft');
+    if(draft !== null){
+      inputText.value = draft;
+      updateWordCount();
+    }
+    const speed = parseFloat(readStorage('tts-speed'));
+    if(!isNaN(speed) && speed >= 0.5 && speed <= 2){
+      speedRange.value = speed;
+      refreshSpeedLabel();
+    }
+  })();
 })();
 </script>
 </body>

@@ -7,7 +7,7 @@ It lets users paste text, choose a voice, adjust speaking speed, and listen with
 
 This project is implemented in one standalone HTML file:
 
-- `/home/runner/work/TTS-web-app/TTS-web-app/TTS-web-app.html`
+- `TTS-web-app.html`
 
 It includes:
 
@@ -48,7 +48,7 @@ No build tools, package manager, or backend services are required.
 Because this is a static single-file app, you can run it directly:
 
 1. Clone or download the repository.
-2. Open `/home/runner/work/TTS-web-app/TTS-web-app/TTS-web-app.html` in your browser.
+2. Open `TTS-web-app.html` in your browser.
 
 Optional (recommended for consistent behavior): serve the folder with any static file server and open the served URL.
 
@@ -62,6 +62,8 @@ Optional (recommended for consistent behavior): serve the folder with any static
 6. Use **Pause** to pause/resume and **Stop** to end playback.
 7. Toggle theme from the moon/sun button in the masthead.
 
+The app uses local system fallback fonts, so it also works offline without external font requests. Draft text, narrator, tempo, and theme are stored in this browser's local storage; avoid saving sensitive manuscripts.
+
 ## Project Structure
 
 ```text
@@ -74,12 +76,22 @@ TTS-web-app/
 ## Browser Notes
 
 - Available voices vary by OS, browser, and installed language packs.
-- Some browsers load voices asynchronously; this app repopulates voice options multiple times to handle that behavior.
-- If speech controls seem unavailable, ensure the browser supports `speechSynthesis` and that audio is not blocked.
+- Some browsers load voices asynchronously; this app repopulates voice options whenever the browser reports new voices (with a short fallback timer).
+- Chrome (and some other engines) silently stops speaking roughly 15 seconds into a single utterance. To work around this, the app splits the text into small word-safe chunks and chains them automatically, so long manuscripts play through without interruption.
+- Playback is paused/resumed by a small internal state machine rather than by polling the browser's `speaking`/`paused` flags, which keeps the Play / Pause / Resume / Stop buttons in sync.
+- Your draft text, narrator voice, tempo, and theme are remembered across reloads via browser `localStorage`. Draft text is stored locally in plaintext for this origin; avoid saving sensitive manuscripts.
+- If speech controls seem unavailable, the browser may not support `speechSynthesis` or audio may be blocked; the app displays an explanatory status message when the API is unavailable.
+
+## Manual Regression Checks
+
+- Type and paste text, including tabs and multiple spaces; confirm the counter updates immediately and over-limit text is rejected.
+- Use text long enough for multiple chunks; pause/resume, change tempo or narrator, and confirm no words are skipped or repeated.
+- Test a browser/voice that does not emit boundary events; confirm fallback highlighting advances through the active chunk.
+- Hide the page or lock the device during playback; confirm controls show the paused state and Resume continues from the current word.
+- Test with SpeechSynthesis unavailable and with blocked `localStorage`; confirm the page remains usable and displays a clear speech-support message.
 
 ## Customization Ideas
 
-- Add persistent text drafts via `localStorage`
 - Add pitch and volume controls
 - Add import/export text support
 - Add keyboard shortcuts for playback controls
@@ -87,4 +99,4 @@ TTS-web-app/
 ## License
 
 This project is licensed under the MIT License.  
-See `/home/runner/work/TTS-web-app/TTS-web-app/LICENSE` for details.
+See `LICENSE` for details.
